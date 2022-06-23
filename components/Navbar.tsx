@@ -28,7 +28,7 @@ export default function Navbar(props: Props) {
     setTheme(theme === 'light' ? 'dark' : 'light')
   }
   return (
-    <AnimatePresence>
+    <AnimatePresence initial={false}>
       <nav className="flex justify-between items-center w-full py-4 px-base">
         <ul>
           <li className="hidden lg:flex">

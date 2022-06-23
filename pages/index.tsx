@@ -19,7 +19,7 @@ const Home: NextPage = () => {
         <div className="px-base py-base text-center">
           <div className="grid gap-8">
             <h1 className="h1 font-black">Hi! 👋 I'm Sean O'Reilly</h1>
-            {/* Links */}
+            {/* Social Links */}
             <div className="flex space-x-4 justify-center">
               <a
                 aria-label="Twitter Link"
