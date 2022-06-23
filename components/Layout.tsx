@@ -2,6 +2,7 @@ import { ReactNode, useState, useEffect } from 'react'
 import Head from 'next/head'
 import Navbar from './Navbar'
 import Footer from './Footer'
+import Modal from './Modal'
 import { useTheme } from 'next-themes'
 interface Props {
   children: ReactNode
@@ -16,6 +17,11 @@ export default function Layout(props: Props) {
     isMobileNavOpen: false,
     mounted: false,
   })
+
+  useEffect(() => {
+    state.isMobileNavOpen && (document.body.style.overflow = 'hidden')
+    !state.isMobileNavOpen && (document.body.style.overflow = 'unset')
+  }, [state.isMobileNavOpen])
 
   useEffect(() => {
     setState((prevState) => ({
@@ -33,7 +39,8 @@ export default function Layout(props: Props) {
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <Navbar state={state} setState={setState} title={title} />
-      <main className="flex-1 w-full h-full">{children}</main>
+      <Modal state={state} />
+      <main className="flex-1 w-full h-full relative top-20">{children}</main>
       <Footer />
     </div>
   )
