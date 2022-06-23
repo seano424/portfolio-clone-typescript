@@ -6,6 +6,9 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      fontFamily: {
+        open: '"Open Sans", serif',
+      },
       colors: {
         primary: '#FF007E',
         secondary: '#188FD9',
