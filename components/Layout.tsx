@@ -26,7 +26,7 @@ export default function Layout(props: Props) {
   }, [state.mounted])
 
   return (
-    <div className="flex flex-col min-h-screen font-inter bg-light dark:bg-dark dark:text-blue-50">
+    <div className="flex flex-col min-h-screen bg-light dark:bg-dark dark:text-blue-50">
       <Head>
         <title>{title}</title>
         <meta name="description" content="Sean O'Reilly's Portfolio" />
