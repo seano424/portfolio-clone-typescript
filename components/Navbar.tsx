@@ -80,14 +80,14 @@ export default function Navbar(props: Props) {
           <button onClick={handleTheme} className="relative w-10 h-10">
             <div className="absolute inset-0 flex justify-center items-center">
               <MoonIcon
-                className={`w-5 text-fuchsia-400 transition-opacity duration-300 ease-in ${
+                className={`w-7 text-fuchsia-400 transition-opacity duration-300 delay-75 ease-in ${
                   theme === 'dark' ? 'opacity-0' : 'opacity-100'
                 }`}
               />
             </div>
             <div className="absolute inset-0 flex justify-center items-center">
               <SunIcon
-                className={`w-5 transition-opacity duration-300 ease-in ${
+                className={`w-7 transition-opacity duration-300 delay-75 ease-in ${
                   theme === 'dark'
                     ? 'opacity-100 text-teal-200'
                     : 'opacity-0'

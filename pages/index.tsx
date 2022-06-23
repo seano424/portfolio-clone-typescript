@@ -5,25 +5,13 @@ import Image from 'next/image'
 const Home: NextPage = () => {
   return (
     <Layout>
-      <div className="flex justify-center">
-        <div className='hidden lg:block'>
+      <div className='flex justify-center'>
+        <div className="relative w-80 h-80">
           <Image
-            priority
             className="object-cover rounded-full"
             src="/images/mebw.jpeg"
             alt="Hero Image"
-            height={350}
-            width={350}
-          />
-        </div>
-        <div className='lg:hidden'>
-          <Image
-            priority
-            className="object-cover rounded-full"
-            src="/images/mebw.jpeg"
-            alt="Hero Image"
-            height={250}
-            width={250}
+            layout='fill'
           />
         </div>
       </div>
