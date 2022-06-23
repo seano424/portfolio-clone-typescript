@@ -19,6 +19,21 @@ export default function Layout(props: Props) {
   })
 
   useEffect(() => {
+    console.log(
+      '\n',
+      'Hello there!',
+      '\n',
+      'Want to reach out?!',
+      '\n',
+      'Shoot me an email @',
+      '\n',
+      'soreilly424@gmail.com',
+      '\n',
+      '🤗'
+    )
+  }, [])
+
+  useEffect(() => {
     state.isMobileNavOpen && (document.body.style.overflow = 'hidden')
     !state.isMobileNavOpen && (document.body.style.overflow = 'unset')
   }, [state.isMobileNavOpen])
@@ -28,7 +43,7 @@ export default function Layout(props: Props) {
       ...prevState,
       mounted: true,
     }))
-    theme === systemTheme ? theme : setTheme(systemTheme)
+    setTheme(theme === systemTheme ? theme : systemTheme)
   }, [state.mounted])
 
   return (

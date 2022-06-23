@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from 'react'
+import { Dispatch, SetStateAction, useState, useEffect } from 'react'
 import { Squash as Hamburger } from 'hamburger-react'
 import { MoonIcon, SunIcon } from '@heroicons/react/solid'
 import { useTheme } from 'next-themes'
@@ -17,6 +17,19 @@ interface Props {
 export default function Navbar(props: Props) {
   const { title, state, setState } = props
   const { theme, setTheme } = useTheme()
+  const [color, setColor] = useState('white')
+  const [icon, setIcon] = useState(null)
+
+  useEffect(() => {
+    setColor(theme === 'dark' ? 'white' : 'black')
+    setIcon(
+      theme === 'dark' ? (
+        <SunIcon className="w-7 transition-opacity duration-500 delay-75 ease-linear" />
+      ) : (
+        <MoonIcon className="w-7 text-fuchsia-400 transition-opacity duration-500 delay-75 ease-linear" />
+      )
+    )
+  }, [theme])
 
   function handleMobileNav() {
     setState((prevState) => ({
@@ -36,25 +49,14 @@ export default function Navbar(props: Props) {
           </Link>
         </li>
         <li className="lg:hidden">
-          {theme === 'dark' ? (
-            <Hamburger
-              label="Show Menu"
-              rounded
-              color="#ffffff"
-              size={24}
-              toggled={state.isMobileNavOpen}
-              toggle={handleMobileNav}
-            />
-          ) : (
-            <Hamburger
-              label="Show Menu"
-              rounded
-              color="#111827"
-              size={24}
-              toggled={state.isMobileNavOpen}
-              toggle={handleMobileNav}
-            />
-          )}
+          <Hamburger
+            label="Show Menu"
+            rounded
+            color={color}
+            size={24}
+            toggled={state.isMobileNavOpen}
+            toggle={handleMobileNav}
+          />
         </li>
       </ul>
       <ul className="hidden lg:flex space-x-4">
@@ -85,13 +87,13 @@ export default function Navbar(props: Props) {
               <div className="absolute inset-0 flex justify-center items-center">
                 {theme === 'dark' ? (
                   <m.div
-                    key="darkThemeButton"
+                    key="themeButton"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     className="absolute inset-0 flex justify-center items-center"
                   >
-                    <SunIcon className="w-7 transition-opacity duration-500 delay-75 ease-linear" />
+                    {icon}
                   </m.div>
                 ) : (
                   <m.div
@@ -101,7 +103,7 @@ export default function Navbar(props: Props) {
                     exit={{ opacity: 0 }}
                     className="absolute inset-0 flex justify-center items-center"
                   >
-                    <MoonIcon className="w-7 text-fuchsia-400 transition-opacity duration-500 delay-75 ease-linear" />
+                    {icon}
                   </m.div>
                 )}
               </div>
