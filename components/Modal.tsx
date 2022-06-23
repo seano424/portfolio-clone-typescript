@@ -29,7 +29,12 @@ export default function Modal(props: Props) {
             {modalLinks.map((link, i) => (
               <li key={i}>
                 <a
-                  className="hover:text-dark dark:hover:text-light transition-all duration-200 ease-linear drop-shadow-2xl"
+                  className={`hover:text-dark dark:hover:text-light transition-all ease-linear drop-shadow-2xl 
+                    ${i === 0 && 'duration-200'}
+                    ${i === 1 && 'duration-300'}
+                    ${i === 2 && 'duration-500'}
+                    ${i === 3 && 'duration-700'}
+                  `}
                   href={link.href}
                 >
                   {link.title}

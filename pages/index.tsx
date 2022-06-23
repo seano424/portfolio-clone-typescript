@@ -15,7 +15,7 @@ const Home: NextPage = () => {
       <div className="flex flex-col items-center justify-center py-base">
         <div className="relative w-80 h-80">
           <svg
-            className="absolute -top-12 -left-10 font-black text-2xl z-20 dark:text-light"
+            className="absolute -top-12 -left-10 font-black text-2xl dark:text-light"
             viewBox="0 0 500 500"
           >
             <path

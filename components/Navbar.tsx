@@ -43,11 +43,11 @@ export default function Navbar(props: Props) {
   function handleTheme() {
     setTheme(theme === 'light' ? 'dark' : 'light')
   }
-  
+
   return (
     <nav className="fixed h-20 z-10 bg-light/90 dark:bg-dark/90 filter backdrop-blur-sm flex justify-between items-center w-full py-4 px-base">
       <ul>
-        <li className="hidden lg:flex">
+        <li className="hidden lg:flex uppercase font-bold text-2xl hover:text-primary transition-all duration-700 ease-linear">
           <Link href="/">
             <a className="cursor-pointer">{title}</a>
           </Link>
@@ -63,39 +63,41 @@ export default function Navbar(props: Props) {
           />
         </li>
       </ul>
-      <ul className="hidden lg:flex space-x-4">
-        <li>
+      <ul className="flex items-center gap-8 uppercase font-bold text-2xl">
+        <li className='hidden lg:block'>
           <Link href="/">
-            <a className="cursor-pointer">Work</a>
+            <a className="cursor-pointer hover:text-primary transition-all duration-200 ease-linear">
+              Projects
+            </a>
           </Link>
         </li>
-        <li>
+        <li className='hidden lg:block'>
           <Link href="/">
-            <a className="cursor-pointer">About</a>
+            <a className="cursor-pointer hover:text-primary transition-all duration-300 ease-linear">
+              About
+            </a>
           </Link>
         </li>
-        <li>
+        <li className='hidden lg:block'>
           <Link href="/">
-            <a className="cursor-pointer">Contact</a>
+            <a className="cursor-pointer hover:text-primary transition-all duration-500">
+              Contact
+            </a>
           </Link>
         </li>
-      </ul>
-      <ul>
-        <li>
+        <li className="flex w-10 h-10 justify-center items-center">
           <button
             aria-label="Button to change color theme"
             onClick={handleTheme}
-            className="relative w-10 h-10"
           >
             <AnimatePresence initial={false}>
-              <div className="absolute inset-0 flex justify-center items-center">
+              <div className="flex ">
                 {theme === 'dark' ? (
                   <m.div
                     key="themeButton"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="absolute inset-0 flex justify-center items-center"
                   >
                     {navState.icon}
                   </m.div>
@@ -105,7 +107,6 @@ export default function Navbar(props: Props) {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="absolute inset-0 flex justify-center items-center"
                   >
                     {navState.icon}
                   </m.div>
