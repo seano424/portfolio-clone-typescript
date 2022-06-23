@@ -19,7 +19,10 @@ const Home: NextPage = () => {
         <div className="px-base py-base text-center">
           <div className="grid gap-8">
             <h1 className="h1 font-black">Hi! 👋 I'm Sean O'Reilly</h1>
-            {/* Social Links */}
+            <h2 className="h3 font-bold -mt-5">
+              A front-end developer who loves to explore and learn 🌍
+            </h2>
+            {/* SocialLinks */}
             <div className="flex space-x-4 justify-center">
               <a
                 aria-label="Twitter Link"
@@ -87,9 +90,6 @@ const Home: NextPage = () => {
                 </svg>
               </a>
             </div>
-            <h2 className="h3 font-bold">
-              A front-end developer who loves to explore and learn 🌍
-            </h2>
             <p className="leading-relaxed">
               I am a Frontend Developer specializing in React and bringing forth
               beautiful UI, and I love what I do! In my freetime you'll find me
