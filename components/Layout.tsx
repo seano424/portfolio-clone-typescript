@@ -1,9 +1,10 @@
 import { ReactNode, useState, useEffect } from 'react'
+import { useTheme } from 'next-themes'
 import Head from 'next/head'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import Modal from './Modal'
-import { useTheme } from 'next-themes'
+
 interface Props {
   children: ReactNode
   title?: string

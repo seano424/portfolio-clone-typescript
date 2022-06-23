@@ -17,18 +17,21 @@ interface Props {
 export default function Navbar(props: Props) {
   const { title, state, setState } = props
   const { theme, setTheme } = useTheme()
-  const [color, setColor] = useState('white')
-  const [icon, setIcon] = useState(null)
+  const [navState, setNavState] = useState({
+    color: 'white',
+    icon: null,
+  })
 
   useEffect(() => {
-    setColor(theme === 'dark' ? 'white' : 'black')
-    setIcon(
-      theme === 'dark' ? (
-        <SunIcon className="w-7 transition-opacity duration-500 delay-75 ease-linear" />
-      ) : (
-        <MoonIcon className="w-7 text-fuchsia-400 transition-opacity duration-500 delay-75 ease-linear" />
-      )
-    )
+    setNavState(() => ({
+      color: theme === 'dark' ? 'white' : 'black',
+      icon:
+        theme === 'dark' ? (
+          <SunIcon className="w-7 transition-opacity duration-500 delay-75 ease-linear" />
+        ) : (
+          <MoonIcon className="w-7 text-fuchsia-400 transition-opacity duration-500 delay-75 ease-linear" />
+        ),
+    }))
   }, [theme])
 
   function handleMobileNav() {
@@ -52,7 +55,7 @@ export default function Navbar(props: Props) {
           <Hamburger
             label="Show Menu"
             rounded
-            color={color}
+            color={navState.color}
             size={24}
             toggled={state.isMobileNavOpen}
             toggle={handleMobileNav}
@@ -93,7 +96,7 @@ export default function Navbar(props: Props) {
                     exit={{ opacity: 0 }}
                     className="absolute inset-0 flex justify-center items-center"
                   >
-                    {icon}
+                    {navState.icon}
                   </m.div>
                 ) : (
                   <m.div
@@ -103,7 +106,7 @@ export default function Navbar(props: Props) {
                     exit={{ opacity: 0 }}
                     className="absolute inset-0 flex justify-center items-center"
                   >
-                    {icon}
+                    {navState.icon}
                   </m.div>
                 )}
               </div>
