@@ -20,8 +20,9 @@ const Home: NextPage = () => {
           <div className="grid gap-8">
             <h1 className="h1 font-black">Hi! 👋 I'm Sean O'Reilly</h1>
             {/* Links */}
-            <div className='flex space-x-4 justify-center'>
+            <div className="flex space-x-4 justify-center">
               <a
+                aria-label="Twitter Link"
                 className="hover:text-primary transition-all duration-200 ease-linear text-blue-500 dark:text-white"
                 href="https://twitter.com/sea_oreilly"
                 target="_blank"
@@ -42,6 +43,7 @@ const Home: NextPage = () => {
                 </svg>
               </a>
               <a
+                aria-label="GitHub Link"
                 className="hover:text-primary transition-all duration-300 ease-linear text-green-500 dark:text-green-200"
                 href="https://github.com/seano424"
                 target="_blank"
@@ -62,6 +64,7 @@ const Home: NextPage = () => {
                 </svg>
               </a>
               <a
+                aria-label="LinkedIn Link"
                 className="hover:text-secondary transition-all duration-500 ease-linear text-primary dark:text-blue-200"
                 href="https://www.linkedin.com/in/sea-oreilly/"
                 target="_blank"
