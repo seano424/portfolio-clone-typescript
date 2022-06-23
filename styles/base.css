@@ -20,6 +20,7 @@
         format('truetype'),
       /* Safari, Android, iOS */
         url('/fonts/open-sans-v29-latin-regular.svg#OpenSans') format('svg'); /* Legacy iOS */
+    font-display: swap;
   }
   /* open-sans-700 - latin */
   @font-face {
@@ -37,6 +38,7 @@
         format('truetype'),
       /* Safari, Android, iOS */
         url('/fonts/open-sans-v29-latin-700.svg#OpenSans') format('svg'); /* Legacy iOS */
+    font-display: swap;
   }
   /* open-sans-800 - latin */
   @font-face {
@@ -54,5 +56,6 @@
         format('truetype'),
       /* Safari, Android, iOS */
         url('/fonts/open-sans-v29-latin-800.svg#OpenSans') format('svg'); /* Legacy iOS */
+    font-display: swap;
   }
 }
