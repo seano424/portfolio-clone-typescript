@@ -5,11 +5,11 @@ import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider attribute="class">
-      <AnimatePresence>
+    <AnimatePresence exitBeforeEnter>
+      <ThemeProvider attribute="class">
         <Component {...pageProps} />
-      </AnimatePresence>
-    </ThemeProvider>
+      </ThemeProvider>
+    </AnimatePresence>
   )
 }
 
