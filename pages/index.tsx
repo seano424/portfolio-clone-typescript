@@ -13,8 +13,7 @@ const Home: NextPage = () => {
             alt="Hero Image"
             layout='fill'
             priority
-            height={330}
-            width={330}
+            sizes="50vw"
           />
         </div>
       </div>

@@ -85,7 +85,7 @@ export default function Example() {
             <div key={item.name} className="px-5 py-2">
               <a
                 href={item.href}
-                className="text-base text-gray-500 dark:text-light hover:text-gray-900"
+                className="text-base text-dark dark:text-light hover:text-gray-900"
               >
                 {item.name}
               </a>
@@ -97,14 +97,14 @@ export default function Example() {
             <a
               key={item.name}
               href={item.href}
-              className="text-gray-400 dark:text-light hover:text-gray-500"
+              className="text-dark dark:text-light hover:text-gray-500"
             >
               <span className="sr-only">{item.name}</span>
               <item.icon className="h-6 w-6" aria-hidden="true" />
             </a>
           ))}
         </div>
-        <p className="mt-8 text-center text-base text-gray-400 dark:text-light">
+        <p className="mt-8 text-center text-base text-dark dark:text-light">
           &copy; 2020 Workflow, Inc. All rights reserved.
         </p>
       </div>

@@ -10,9 +10,7 @@ interface Props {
   state: {
     isMobileNavOpen: boolean
   }
-  setState: Dispatch<
-    SetStateAction<{ isMobileNavOpen: boolean }>
-  >
+  setState: Dispatch<SetStateAction<{ isMobileNavOpen: boolean }>>
 }
 
 export default function Navbar(props: Props) {
@@ -39,7 +37,7 @@ export default function Navbar(props: Props) {
         <li className="lg:hidden">
           {theme === 'dark' ? (
             <Hamburger
-              label='Show Menu'
+              label="Show Menu"
               rounded
               color="#ffffff"
               size={24}
@@ -48,7 +46,7 @@ export default function Navbar(props: Props) {
             />
           ) : (
             <Hamburger
-              label='Show Menu'
+              label="Show Menu"
               rounded
               color="#111827"
               size={24}
@@ -77,7 +75,11 @@ export default function Navbar(props: Props) {
       </ul>
       <ul>
         <li>
-          <button onClick={handleTheme} className="relative w-10 h-10">
+          <button
+            aria-label="Button to change color theme"
+            onClick={handleTheme}
+            className="relative w-10 h-10"
+          >
             <div className="absolute inset-0 flex justify-center items-center">
               <MoonIcon
                 className={`w-7 text-fuchsia-400 transition-opacity duration-300 delay-75 ease-in ${
@@ -88,9 +90,7 @@ export default function Navbar(props: Props) {
             <div className="absolute inset-0 flex justify-center items-center">
               <SunIcon
                 className={`w-7 transition-opacity duration-300 delay-75 ease-in ${
-                  theme === 'dark'
-                    ? 'opacity-100 text-teal-200'
-                    : 'opacity-0'
+                  theme === 'dark' ? 'opacity-100 text-teal-200' : 'opacity-0'
                 }`}
               />
             </div>
