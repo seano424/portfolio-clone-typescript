@@ -28,60 +28,60 @@ export default function Navbar(props: Props) {
     setTheme(theme === 'light' ? 'dark' : 'light')
   }
   return (
-    <AnimatePresence initial={false}>
-      <nav className="flex justify-between items-center w-full py-4 px-base">
-        <ul>
-          <li className="hidden lg:flex">
-            <Link href="/">
-              <a className="cursor-pointer">{title}</a>
-            </Link>
-          </li>
-          <li className="lg:hidden">
-            {theme === 'dark' ? (
-              <Hamburger
-                label="Show Menu"
-                rounded
-                color="#ffffff"
-                size={24}
-                toggled={state.isMobileNavOpen}
-                toggle={handleMobileNav}
-              />
-            ) : (
-              <Hamburger
-                label="Show Menu"
-                rounded
-                color="#111827"
-                size={24}
-                toggled={state.isMobileNavOpen}
-                toggle={handleMobileNav}
-              />
-            )}
-          </li>
-        </ul>
-        <ul className="hidden lg:flex space-x-4">
-          <li>
-            <Link href="/">
-              <a className="cursor-pointer">Work</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/">
-              <a className="cursor-pointer">About</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/">
-              <a className="cursor-pointer">Contact</a>
-            </Link>
-          </li>
-        </ul>
-        <ul>
-          <li>
-            <button
-              aria-label="Button to change color theme"
-              onClick={handleTheme}
-              className="relative w-10 h-10"
-            >
+    <nav className="flex justify-between items-center w-full py-4 px-base">
+      <ul>
+        <li className="hidden lg:flex">
+          <Link href="/">
+            <a className="cursor-pointer">{title}</a>
+          </Link>
+        </li>
+        <li className="lg:hidden">
+          {theme === 'dark' ? (
+            <Hamburger
+              label="Show Menu"
+              rounded
+              color="#ffffff"
+              size={24}
+              toggled={state.isMobileNavOpen}
+              toggle={handleMobileNav}
+            />
+          ) : (
+            <Hamburger
+              label="Show Menu"
+              rounded
+              color="#111827"
+              size={24}
+              toggled={state.isMobileNavOpen}
+              toggle={handleMobileNav}
+            />
+          )}
+        </li>
+      </ul>
+      <ul className="hidden lg:flex space-x-4">
+        <li>
+          <Link href="/">
+            <a className="cursor-pointer">Work</a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/">
+            <a className="cursor-pointer">About</a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/">
+            <a className="cursor-pointer">Contact</a>
+          </Link>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <button
+            aria-label="Button to change color theme"
+            onClick={handleTheme}
+            className="relative w-10 h-10"
+          >
+            <AnimatePresence initial={false}>
               <div className="absolute inset-0 flex justify-center items-center">
                 {theme === 'dark' ? (
                   <motion.div
@@ -105,10 +105,10 @@ export default function Navbar(props: Props) {
                   </motion.div>
                 )}
               </div>
-            </button>
-          </li>
-        </ul>
-      </nav>
-    </AnimatePresence>
+            </AnimatePresence>
+          </button>
+        </li>
+      </ul>
+    </nav>
   )
 }

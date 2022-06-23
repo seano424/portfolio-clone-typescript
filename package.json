@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^1.0.6",
+    "@next/bundle-analyzer": "^12.1.6",
     "@nodelib/fs.stat": "^2.0.5",
     "@nodelib/fs.walk": "^1.2.8",
     "@tailwindcss/aspect-ratio": "^0.4.0",

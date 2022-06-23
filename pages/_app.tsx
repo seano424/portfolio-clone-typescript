@@ -5,7 +5,7 @@ import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <AnimatePresence exitBeforeEnter>
+    <AnimatePresence>
       <ThemeProvider attribute="class">
         <Component {...pageProps} />
       </ThemeProvider>
