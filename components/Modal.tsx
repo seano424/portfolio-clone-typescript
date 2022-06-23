@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, m } from 'framer-motion'
 
 interface Props {
   state: {
@@ -18,7 +18,7 @@ export default function Modal(props: Props) {
   return (
     <AnimatePresence initial={false}>
       {state.isMobileNavOpen && (
-        <motion.div
+        <m.div
           key="modal"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -37,7 +37,7 @@ export default function Modal(props: Props) {
               </li>
             ))}
           </ul>
-        </motion.div>
+        </m.div>
       )}
     </AnimatePresence>
   )

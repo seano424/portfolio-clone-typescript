@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction } from 'react'
 import { Squash as Hamburger } from 'hamburger-react'
 import { MoonIcon, SunIcon } from '@heroicons/react/solid'
 import { useTheme } from 'next-themes'
-import { AnimatePresence, motion, m } from 'framer-motion'
+import { AnimatePresence, m } from 'framer-motion'
 
 import Link from 'next/link'
 interface Props {
@@ -94,7 +94,7 @@ export default function Navbar(props: Props) {
                     <SunIcon className="w-7 transition-opacity duration-500 delay-75 ease-linear" />
                   </m.div>
                 ) : (
-                  <motion.div
+                  <m.div
                     key="lightThemeButton"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -102,7 +102,7 @@ export default function Navbar(props: Props) {
                     className="absolute inset-0 flex justify-center items-center"
                   >
                     <MoonIcon className="w-7 text-fuchsia-400 transition-opacity duration-500 delay-75 ease-linear" />
-                  </motion.div>
+                  </m.div>
                 )}
               </div>
             </AnimatePresence>
