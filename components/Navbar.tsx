@@ -1,10 +1,10 @@
 import { Dispatch, SetStateAction, useState, useEffect } from 'react'
+import { useTheme } from 'next-themes'
+import Link from 'next/link'
 import { Squash as Hamburger } from 'hamburger-react'
 import { MoonIcon, SunIcon } from '@heroicons/react/solid'
-import { useTheme } from 'next-themes'
 import { AnimatePresence, m } from 'framer-motion'
 
-import Link from 'next/link'
 interface Props {
   logo?: string
   title?: string
@@ -43,6 +43,7 @@ export default function Navbar(props: Props) {
   function handleTheme() {
     setTheme(theme === 'light' ? 'dark' : 'light')
   }
+  
   return (
     <nav className="fixed h-20 z-10 bg-light/90 dark:bg-dark/90 filter backdrop-blur-sm flex justify-between items-center w-full py-4 px-base">
       <ul>

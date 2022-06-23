@@ -1,12 +1,32 @@
 import Layout from '@/components/Layout'
 import type { NextPage } from 'next'
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
+import { useTheme } from 'next-themes'
 
 const Home: NextPage = () => {
+  const { theme } = useTheme()
+  const [textColor, setTextColor] = useState('')
+  useEffect(() => {
+    setTextColor(theme === 'dark' ? 'white' : 'black')
+  }, [theme])
   return (
     <Layout>
       <div className="flex flex-col items-center justify-center py-base">
         <div className="relative w-80 h-80">
+          <svg
+            className="absolute -top-12 -left-10 font-black text-2xl z-20 dark:text-light"
+            viewBox="0 0 500 500"
+          >
+            <path
+              id="curve"
+              fill="transparent"
+              d="M73.2,148.6c5-6.1,64.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97"
+            />
+            <text fill={textColor} width="500">
+              <textPath xlinkHref="#curve">Me in Mexico 🌮 😁</textPath>
+            </text>
+          </svg>
           <Image
             className="object-cover rounded-full"
             src="/images/mebw.jpeg"
