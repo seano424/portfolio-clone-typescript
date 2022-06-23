@@ -13,7 +13,7 @@ const Home: NextPage = () => {
   return (
     <Layout>
       <div className="flex flex-col items-center justify-center py-base">
-        <div className="relative w-80 h-80">
+        <div className="relative h-64 w-64 sm:w-80 sm:h-80">
           <svg
             className="absolute -top-12 -left-10 font-black text-2xl dark:text-light"
             viewBox="0 0 500 500"
@@ -36,12 +36,9 @@ const Home: NextPage = () => {
             sizes="50vw"
           />
         </div>
-        <div className="px-base py-base text-center">
+        <div className="px-base py-base text-center lg:max-w-6xl">
           <div className="grid gap-8">
-            <h1 className="h1 font-black">Hi! 👋 I'm Sean O'Reilly</h1>
-            <h2 className="h3 font-bold -mt-5">
-              A front-end developer who loves to explore and learn 🌍
-            </h2>
+            <h1 className="h1 font-black">Hi! 👋 I'm Sean Patrick O'Reilly</h1>
             {/* SocialLinks */}
             <div className="flex space-x-4 justify-center">
               <a
@@ -113,26 +110,50 @@ const Home: NextPage = () => {
                 </svg>
               </a>
             </div>
-            <p className="leading-relaxed">
+            <p className="leading-[1.8] p">
               I am a Frontend Developer specializing in React and bringing forth
-              beautiful UI, and I love what I do! In my freetime you'll find me
-              outside maybe on a run, a bike ride, hiking, doing some goofy
-              activities with friends - recently discovered acro yoga and was
-              surprisingly fun! I'm also a travel nut, and I'm often moving
-              around. This last year I've lived in Mexico City, Kansas City,
-              Playa del Carmen, Sayulita, and Puerto Escondido, Mexico. I was
-              based in Spain for a couple of years prior to that, and I've lived
-              in Thailand, Cambodia, India, and Vietnam. Right now you can find
-              me in Kansas City hanging with the fam :).
+              beautiful UI, and I love what I do! I commonly make websites and
+              apps with TailwindCSS / SASS, Craft CMS, NextJS, and JAMstack
+              architecture. I am mostly experienced with JavaScript and JS
+              frameworks, but I have also worked in Ruby on Rails. If you have
+              any projects in mind feel free to reach out!
             </p>
-            <p className="leading-relaxed">
-              I commonly make websites and apps with TailwindCSS / SASS, Craft
-              CMS, NextJS, and JAMstack architecture. I am mostly experienced
-              with JavaScript and JS frameworks, but I have also worked in Ruby
-              on Rails. If you have any fun projects in mind feel free to reach
-              out! Lately, I am learning how to create super efficient sites and
-              better understanding how to use web animations.
-            </p>
+            <a
+              aria-label="Go to Projects Button"
+              className="p-4 mt-2 rounded-full cursor-pointer font-black shadow-xl dark:bg-gray-50 dark:text-gray-900 transition-all duration-200 ease-linear hover:text-2xl  hover:text-primary animate-pulse w-max mx-auto"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
+                className="h-6"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M16.707 10.293a1 1 0 010 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l4.293-4.293a1 1 0 011.414 0z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+            <a
+              aria-label="Go to Top Button"
+              className="p-4 mt-2 rounded-full cursor-pointer font-black shadow-xl dark:bg-gray-50 dark:text-gray-900 transition-all duration-200 ease-linear hover:text-2xl  hover:text-primary animate-pulse w-max mx-auto"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
+                className="h-6 rotate-180"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M16.707 10.293a1 1 0 010 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l4.293-4.293a1 1 0 011.414 0z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
           </div>
         </div>
       </div>

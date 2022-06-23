@@ -34,10 +34,10 @@ export default function Layout(props: Props) {
     )
   }, [])
 
-  useEffect(() => {
-    state.isMobileNavOpen && (document.body.style.overflow = 'hidden')
-    !state.isMobileNavOpen && (document.body.style.overflow = 'unset')
-  }, [state.isMobileNavOpen])
+  // useEffect(() => {
+  //   state.isMobileNavOpen && (document.body.style.overflow = 'hidden')
+  //   !state.isMobileNavOpen && (document.body.style.overflow = 'unset')
+  // }, [state.isMobileNavOpen])
 
   useEffect(() => {
     setState((prevState) => ({
@@ -56,7 +56,7 @@ export default function Layout(props: Props) {
       </Head>
       <Navbar state={state} setState={setState} title={title} />
       <Modal state={state} />
-      <main className="flex-1 w-full h-full relative top-20">{children}</main>
+      <main className="flex-1 w-full h-full relative top-24 sm:top-20">{children}</main>
       <Footer />
     </div>
   )

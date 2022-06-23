@@ -20,12 +20,12 @@ export default function Modal(props: Props) {
       {state.isMobileNavOpen && (
         <m.div
           key="modal"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed top-20 bg-light/90 dark:bg-dark/90 filter backdrop-blur-sm min-h-screen z-10 w-full flex justify-center py-base items-start"
+          initial={{ opacity: 0, x: -200 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -400 }}
+          className="lg:hidden fixed top-20 bg-light/90 dark:bg-dark/90 filter backdrop-blur-sm min-h-screen z-10 w-3/4 sm:w-1/2 flex justify-center py-base items-start"
         >
-          <ul className="px-base py-base text-6xl font-black uppercase text-center grid gap-16 tracking-tighter text-fuchsia-400">
+          <ul className="px-base pt-20 sm:py-base text-4xl sm:text-6xl font-black uppercase sm:text-center grid gap-8 sm:gap-16 tracking-tighter text-fuchsia-400">
             {modalLinks.map((link, i) => (
               <li key={i}>
                 <a

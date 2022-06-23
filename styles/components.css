@@ -29,7 +29,8 @@
   }
 
   .p {
-    @apply font-light text-lg tracking-wider leading-relaxed;
+    @apply sm:text-lg;
+    font-family: 'Lucida Grande';
   }
 
   .page-padding {
