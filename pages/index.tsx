@@ -12,6 +12,9 @@ const Home: NextPage = () => {
             src="/images/mebw.jpeg"
             alt="Hero Image"
             layout='fill'
+            priority
+            height={330}
+            width={330}
           />
         </div>
       </div>
