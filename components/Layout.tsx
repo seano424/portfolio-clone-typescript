@@ -29,7 +29,7 @@ export default function Layout(props: Props) {
       mounted: true,
     }))
     theme === systemTheme ? theme : setTheme(systemTheme)
-  }, [state.mounted, theme, systemTheme, setTheme])
+  }, [state.mounted])
 
   return (
     <div className="flex flex-col font-open min-h-screen bg-light dark:bg-dark dark:text-blue-50">
