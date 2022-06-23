@@ -1,0 +1,29 @@
+@layer utilities {
+  .debug-screens::before {
+    @apply rounded shadow-none text-white bg-gray-900 m-4 opacity-100 p-2;
+  }
+
+  .py-base {
+    @apply py-6 sm:py-10 md:py-14;
+  }
+
+  .px-base {
+    @apply px-6 sm:px-10 md:px-14;
+  }
+
+  .masonry {
+    gap: 2em;
+    column-count: 1;
+  }
+  .masonry-sm {
+    gap: 2em;
+    column-count: 2;
+  }
+  .masonry-md {
+    gap: 2em;
+    column-count: 3;
+  }
+  .break-inside {
+    break-inside: avoid;
+  }
+}

@@ -1,0 +1,38 @@
+@layer components {
+  .link {
+    @apply text-white text-4xl hover:text-gray-100/50 transition-all duration-150 ease-in-out font-bold md:text-5xl xl:text-7xl;
+  }
+
+  .active {
+    @apply text-gray-100/50;
+  }
+
+  .card {
+    @apply shadow-lg rounded-md p-5 tracking-widest leading-loose;
+  }
+
+  .footer {
+    @apply flex w-full p-5 justify-center gap-6 uppercase font-extralight tracking-tighter;
+    font-family: 'CabinetGrotesk';
+  }
+
+  .h1 {
+    @apply text-4xl sm:text-6xl xl:text-8xl;
+  }
+
+  .h2 {
+    @apply text-6xl font-bold;
+  }
+
+  .h3 {
+    @apply font-light sm:text-2xl;
+  }
+
+  .p {
+    @apply font-light text-lg tracking-wider leading-relaxed;
+  }
+
+  .page-padding {
+    @apply pt-56 pb-8;
+  }
+}
