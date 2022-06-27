@@ -12,7 +12,7 @@ interface Props {
 }
 
 export default function Layout(props: Props) {
-  const { children, title = 'Sean OReilly' } = props
+  const { children, title = "Sean OReilly's Portfolio" } = props
   const { theme, systemTheme, setTheme } = useTheme()
   const [state, setState] = useState({
     isMobileNavOpen: false,
@@ -56,8 +56,10 @@ export default function Layout(props: Props) {
       </Head>
       <Navbar state={state} setState={setState} title={title} />
       <Modal state={state} />
-      <main className="flex-1 w-full h-full relative top-24 sm:top-20">{children}</main>
-      <Footer />
+      <div className="relative top-24 sm:top-20">
+        <main className="flex-1 w-full h-full">{children}</main>
+        <Footer />
+      </div>
     </div>
   )
 }
