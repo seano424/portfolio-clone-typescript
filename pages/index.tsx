@@ -56,22 +56,22 @@ const Home: NextPage = () => {
     {
       title: 'About Me',
       location: 'about-me',
-      backgroundColor: '[#3a86ff]',
+      backgroundColor: 'bg-[#3a86ff]',
     },
     {
       title: 'Projects',
       location: 'projects',
-      backgroundColor: '[#8338ec]',
+      backgroundColor: 'bg-[#8338ec]',
     },
     {
       title: 'Contact Me',
       location: 'contact',
-      backgroundColor: '[#ff006e]',
+      backgroundColor: 'bg-[#ff006e]',
     },
     {
       title: "Sean's Resume",
       location: 'resume',
-      backgroundColor: '[#fb5607]',
+      backgroundColor: 'bg-[#fb5607]',
     },
   ]
 
@@ -106,7 +106,7 @@ const Home: NextPage = () => {
                   }
                   ${
                     state.isTopOfPage &&
-                    `bg-${link.backgroundColor} text-white hover:bg-${link.backgroundColor}/40 transition-all duration-200`
+                    `${link.backgroundColor} text-white hover:${link.backgroundColor}/40 transition-all duration-200`
                   }
                   `}
                   >
