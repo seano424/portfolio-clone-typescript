@@ -83,10 +83,10 @@ const Home: NextPage = () => {
   return (
     <Layout>
       <AnimatePresence initial={false}>
-        <section className="lg:grid grid-cols-6 max-w-6xl mx-auto lg:mt-20">
-          <div className="hidden lg:block col-span-2 sticky top-20 self-start">
+        <section className="lg:grid grid-cols-8 border-4 lg:mt-20">
+          <aside className="hidden border lg:block col-span-3 sticky top-20 self-start py-base">
             <ul
-              className={`flex flex-col gap-4 pt-20 transition-all duration-700 ease-linear items-end
+              className={`flex flex-col gap-4 transition-all duration-700 ease-linear items-end border-4
             `}
             >
               {links.map((link) => (
@@ -94,7 +94,7 @@ const Home: NextPage = () => {
                   key={link.location}
                   variants={linkVariants}
                   animate={state.isTopOfPage ? 'shrink' : 'stretch'}
-                  className={`px-4 transform transition-all duration-700 ease-in-out`}
+                  className={`transform transition-all duration-700 ease-in-out`}
                 >
                   <a
                     href={`#${link.location}`}
@@ -115,9 +115,9 @@ const Home: NextPage = () => {
                 </m.li>
               ))}
             </ul>
-          </div>
-          <section className="col-span-4 flex flex-col items-center justify-center py-base border-8">
-            <div
+          </aside>
+          <aside className="col-span-5 border flex flex-col items-center justify-center py-base">
+            <section
               id="about-me"
               className="flex flex-col items-center justify-center border"
             >
@@ -131,7 +131,7 @@ const Home: NextPage = () => {
                   sizes="50vw"
                 />
               </div>
-              <div className="px-base py-base text-center lg:max-w-6xl">
+              <div className="py-base text-center px-20">
                 <div className="grid gap-8">
                   <h1 className="h1 font-black">
                     Hi! 👋 I'm Sean Patrick O'Reilly
@@ -207,30 +207,26 @@ const Home: NextPage = () => {
                       </svg>
                     </a>
                   </div>
-                  {!state.isTopOfPage && (
-                    <m.p
-                      variants={showingVariants}
-                      animate={
-                        state.location === 'about-me' ? 'active' : 'disabled'
-                      }
-                      className="leading-[1.8] p"
-                    >
-                      I am a Frontend Developer specializing in React and
-                      bringing forth beautiful UI, and I love what I do! I
-                      commonly make websites and apps with TailwindCSS / SASS,
-                      Craft CMS, NextJS, and JAMstack architecture. I am mostly
-                      experienced with JavaScript and JS frameworks, but I have
-                      also worked in Ruby on Rails. If you have any projects in
-                      mind feel free to reach out!
-                    </m.p>
-                  )}
+                  <h3 className='h3 font-black'>Front-end Developer & Designer</h3>
+                  <m.p
+                    variants={showingVariants}
+                    animate={
+                      state.location === 'about-me' ? 'active' : 'disabled'
+                    }
+                    className="leading-[1.8] p"
+                  >
+                    I am a Frontend Developer specializing in React and bringing
+                    forth beautiful UI, and I love what I do! I commonly make
+                    websites and apps with TailwindCSS / SASS, Craft CMS,
+                    NextJS, and JAMstack architecture. I am mostly experienced
+                    with JavaScript and JS frameworks, but I have also worked in
+                    Ruby on Rails. If you have any projects in mind feel free to
+                    reach out!
+                  </m.p>
                 </div>
               </div>
-            </div>
-            <div
-              id="projects"
-              className="border-4 py-base h-[400px] w-full"
-            ></div>
+            </section>
+            <section id="projects" className="py-base h-[800px] w-full border-8"></section>
             <button
               aria-label="Go to Top Button"
               className="p-4 mt-10 rounded-full cursor-pointer font-black shadow-xl dark:bg-gray-50 dark:text-gray-900 transition-all duration-200 ease-linear hover:text-2xl  hover:text-primary animate-pulse w-max mx-auto"
@@ -249,7 +245,7 @@ const Home: NextPage = () => {
                 ></path>
               </svg>
             </button>
-          </section>
+          </aside>
         </section>
       </AnimatePresence>
     </Layout>

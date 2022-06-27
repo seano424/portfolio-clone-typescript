@@ -45,7 +45,7 @@ export default function Navbar(props: Props) {
   }
 
   return (
-    <nav className="fixed h-20 z-10 bg-light/90 dark:bg-dark/90 filter backdrop-blur-sm flex justify-between items-center w-full py-4 px-base lg:px-52">
+    <nav className="fixed border-8 h-20 z-10 bg-light/90 dark:bg-dark/90 filter backdrop-blur-sm flex justify-between items-center w-full py-4 px-base">
       <ul>
         <li className="hidden lg:flex uppercase font-bold text-2xl hover:text-primary transition-all duration-700 ease-linear">
           <Link href="/">
@@ -64,27 +64,6 @@ export default function Navbar(props: Props) {
         </li>
       </ul>
       <ul className="flex items-center gap-8 uppercase font-bold text-2xl">
-        {/* <li className='hidden lg:block'>
-          <Link href="/">
-            <a className="cursor-pointer hover:text-primary transition-all duration-200 ease-linear">
-              Projects
-            </a>
-          </Link>
-        </li>
-        <li className='hidden lg:block'>
-          <Link href="/">
-            <a className="cursor-pointer hover:text-primary transition-all duration-300 ease-linear">
-              About
-            </a>
-          </Link>
-        </li>
-        <li className='hidden lg:block'>
-          <Link href="/">
-            <a className="cursor-pointer hover:text-primary transition-all duration-500">
-              Contact
-            </a>
-          </Link>
-        </li> */}
         <li className="flex w-10 h-10 justify-center items-center">
           <button
             aria-label="Button to change color theme"

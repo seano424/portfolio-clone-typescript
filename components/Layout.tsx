@@ -56,10 +56,10 @@ export default function Layout(props: Props) {
       </Head>
       <Navbar state={state} setState={setState} title={title} />
       <Modal state={state} />
-      <div className="relative top-24 sm:top-20">
-        <main className="flex-1 w-full h-full">{children}</main>
+      <main className="relative top-24 sm:top-20 px-base">
+        <div className="flex-1 w-full h-full">{children}</div>
         <Footer />
-      </div>
+      </main>
     </div>
   )
 }
