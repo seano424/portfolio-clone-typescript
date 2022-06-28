@@ -5,11 +5,44 @@ import Image from 'next/image'
 import { useTheme } from 'next-themes'
 import { AnimatePresence, m } from 'framer-motion'
 
+const links = [
+  {
+    title: 'About Me',
+    location: 'about',
+    backgroundColor: 'bg-[#3a86ff]',
+  },
+  {
+    title: 'Projects',
+    location: 'projects',
+    backgroundColor: 'bg-[#8338ec]',
+  },
+  {
+    title: 'Contact Me',
+    location: 'contact',
+    backgroundColor: 'bg-[#ff006e]',
+  },
+  {
+    title: "Sean's Resume",
+    location: 'resume',
+    backgroundColor: 'bg-[#fb5607]',
+  },
+]
+
+const showingVariants = {
+  active: { opacity: 1 },
+  disabled: { opacity: 0 },
+}
+
+const linkVariants = {
+  shrink: { minWidth: '100px', color: 'white' },
+  stretch: { minWidth: '100%', color: 'black' },
+}
+
 const Home: NextPage = () => {
   const { theme } = useTheme()
   const [state, setState] = useState({
     textColor: '',
-    location: '',
+    location: 'about',
     isTopOfPage: true,
   })
 
@@ -20,13 +53,11 @@ const Home: NextPage = () => {
         setState((prevState) => ({
           ...prevState,
           isTopOfPage: false,
-          location: 'about-me',
         }))
       } else {
         setState((prevState) => ({
           ...prevState,
           isTopOfPage: true,
-          location: '',
         }))
       }
     },
@@ -38,46 +69,22 @@ const Home: NextPage = () => {
       ...prevState,
       textColor: theme === 'dark' ? 'white' : 'black',
     }))
+    console.log('this is running')
   }, [theme, state.textColor])
 
   useEffect(() => {
     window.addEventListener('scroll', handleNavigation)
+
     return () => {
       window.removeEventListener('scroll', handleNavigation)
     }
   }, [handleNavigation])
 
-  const linkVariants = {
-    shrink: { minWidth: '100px' },
-    stretch: { minWidth: '100%' },
-  }
-
-  const links = [
-    {
-      title: 'About Me',
-      location: 'about-me',
-      backgroundColor: 'bg-[#3a86ff]',
-    },
-    {
-      title: 'Projects',
-      location: 'projects',
-      backgroundColor: 'bg-[#8338ec]',
-    },
-    {
-      title: 'Contact Me',
-      location: 'contact',
-      backgroundColor: 'bg-[#ff006e]',
-    },
-    {
-      title: "Sean's Resume",
-      location: 'resume',
-      backgroundColor: 'bg-[#fb5607]',
-    },
-  ]
-
-  const showingVariants = {
-    active: { opacity: 1 },
-    disabled: { opacity: 0 },
+  const handleEnterLocation = (newLocation: string) => {
+    setState((prevState) => ({
+      ...prevState,
+      location: newLocation,
+    }))
   }
 
   return (
@@ -102,11 +109,11 @@ const Home: NextPage = () => {
                   ${
                     state.location === link.location && !state.isTopOfPage
                       ? 'bg-white dark:bg-secondary text-dark dark:text-light'
-                      : 'hover:bg-gray-100 dark:hover:bg-gray-900 transition-all duration-200 ease-in-out'
+                      : 'hover:bg-gray-100 dark:hover:bg-gray-900 transition-all duration-100 ease-in-out'
                   }
                   ${
                     state.isTopOfPage &&
-                    `${link.backgroundColor} text-white hover:${link.backgroundColor}/40 transition-all duration-200`
+                    `${link.backgroundColor} text-white transition-all duration-100 ease-in-out hover:${link.backgroundColor}/40`
                   }
                   `}
                   >
@@ -114,11 +121,37 @@ const Home: NextPage = () => {
                   </a>
                 </m.li>
               ))}
+              <li
+                className={`self-start pt-10 px-8 transition-opacity duration-300 ${
+                  state.isTopOfPage ? 'opacity-0' : 'opacity-100 delay-300'
+                }`}
+              >
+                <a
+                  className="text-gray-400 hover:text-black transition-colors duration-200"
+                  href="/"
+                >
+                  soreilly424@gmail.com
+                </a>
+              </li>
+              <li
+                className={`self-start px-8 transition-opacity duration-300 ${
+                  state.isTopOfPage ? 'opacity-0' : 'opacity-100 delay-300'
+                }`}
+              >
+                <a
+                  className="text-gray-400 hover:text-black transition-colors duration-200"
+                  href="https://github.com/seano424"
+                >
+                  github.com/seano424
+                </a>
+              </li>
             </ul>
           </aside>
           <aside className="col-span-5 border flex flex-col items-center justify-center py-base">
-            <section
-              id="about-me"
+            <m.section
+              onViewportEnter={() => handleEnterLocation('about')}
+              viewport={{ margin: '-450px' }}
+              id="about"
               className="flex flex-col items-center justify-center border"
             >
               <div className="relative h-64 w-64 sm:w-80 sm:h-80">
@@ -207,12 +240,16 @@ const Home: NextPage = () => {
                       </svg>
                     </a>
                   </div>
-                  <h3 className='h3 font-black'>Front-end Developer & Designer</h3>
+                  <h3 className="h3 font-black">
+                    Front-end Developer & Designer
+                  </h3>
                   <m.p
                     variants={showingVariants}
-                    animate={
-                      state.location === 'about-me' ? 'active' : 'disabled'
+                    initial={{ opacity: 0 }}
+                    whileInView={
+                      state.isTopOfPage ? { opacity: 0 } : { opacity: 1 }
                     }
+                    // animate={state.isTopOfPage ? 'disabled' : 'active'}
                     className="leading-[1.8] p"
                   >
                     I am a Frontend Developer specializing in React and bringing
@@ -225,8 +262,25 @@ const Home: NextPage = () => {
                   </m.p>
                 </div>
               </div>
-            </section>
-            <section id="projects" className="py-base h-[800px] w-full border-8"></section>
+            </m.section>
+            <m.section
+              onViewportEnter={() => handleEnterLocation('projects')}
+              viewport={{ margin: '-450px' }}
+              id="projects"
+              className="py-base h-[800px] w-full border-8 border-red-50"
+            ></m.section>
+            <m.section
+              onViewportEnter={() => handleEnterLocation('contact')}
+              viewport={{ margin: '-450px' }}
+              id="contact"
+              className="py-base h-[800px] w-full border-8 border-green-50"
+            ></m.section>
+            <m.section
+              onViewportEnter={() => handleEnterLocation('resume')}
+              viewport={{ margin: '-450px' }}
+              id="resume"
+              className="py-base h-[800px] w-full border-8 border-blue-50"
+            ></m.section>
             <button
               aria-label="Go to Top Button"
               className="p-4 mt-10 rounded-full cursor-pointer font-black shadow-xl dark:bg-gray-50 dark:text-gray-900 transition-all duration-200 ease-linear hover:text-2xl  hover:text-primary animate-pulse w-max mx-auto"
