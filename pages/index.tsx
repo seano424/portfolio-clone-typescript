@@ -1,9 +1,9 @@
-import Layout from '@/components/Layout'
-import type { NextPage } from 'next'
 import { useEffect, useState, useCallback } from 'react'
-import Image from 'next/image'
-import { useTheme } from 'next-themes'
 import { AnimatePresence, m } from 'framer-motion'
+import { useTheme } from 'next-themes'
+import Image from 'next/image'
+import Layout from '@/components/Layout'
+import Link from 'next/link'
 
 const links = [
   {
@@ -38,7 +38,7 @@ const linkVariants = {
   stretch: { minWidth: '100%', color: 'black' },
 }
 
-const Home: NextPage = () => {
+const Home = () => {
   const { theme } = useTheme()
   const [state, setState] = useState({
     textColor: '',
@@ -46,30 +46,26 @@ const Home: NextPage = () => {
     isTopOfPage: true,
   })
 
-  const handleNavigation = useCallback(
-    (e) => {
-      const window = e.currentTarget
-      if (window.scrollY > 0) {
-        setState((prevState) => ({
-          ...prevState,
-          isTopOfPage: false,
-        }))
-      } else {
-        setState((prevState) => ({
-          ...prevState,
-          isTopOfPage: true,
-        }))
-      }
-    },
-    [state.isTopOfPage]
-  )
+  const handleNavigation = useCallback((e) => {
+    const window = e.currentTarget
+    if (window.scrollY > 0) {
+      setState((prevState) => ({
+        ...prevState,
+        isTopOfPage: false,
+      }))
+    } else {
+      setState((prevState) => ({
+        ...prevState,
+        isTopOfPage: true,
+      }))
+    }
+  }, [])
 
   useEffect(() => {
     setState((prevState) => ({
       ...prevState,
       textColor: theme === 'dark' ? 'white' : 'black',
     }))
-    console.log('this is running')
   }, [theme, state.textColor])
 
   useEffect(() => {
@@ -103,9 +99,9 @@ const Home: NextPage = () => {
                   animate={state.isTopOfPage ? 'shrink' : 'stretch'}
                   className={`transform transition-all duration-700 ease-in-out`}
                 >
-                  <a
-                    href={`#${link.location}`}
-                    className={`px-8 py-4 rounded flex
+                  <Link href={`#${link.location}`}>
+                    <a
+                      className={`px-8 py-4 rounded flex
                   ${
                     state.location === link.location && !state.isTopOfPage
                       ? 'bg-white dark:bg-secondary text-dark dark:text-light'
@@ -116,9 +112,10 @@ const Home: NextPage = () => {
                     `${link.backgroundColor} text-white transition-all duration-100 ease-in-out hover:${link.backgroundColor}/40`
                   }
                   `}
-                  >
-                    {link.title}
-                  </a>
+                    >
+                      {link.title}
+                    </a>
+                  </Link>
                 </m.li>
               ))}
               <li
@@ -126,12 +123,11 @@ const Home: NextPage = () => {
                   state.isTopOfPage ? 'opacity-0' : 'opacity-100 delay-300'
                 }`}
               >
-                <a
-                  className="text-gray-400 hover:text-black transition-colors duration-200"
-                  href="/"
-                >
-                  soreilly424@gmail.com
-                </a>
+                <Link href="/">
+                  <a className="text-gray-400 hover:text-black transition-colors duration-200">
+                    soreilly424@gmail.com
+                  </a>
+                </Link>
               </li>
               <li
                 className={`self-start px-8 transition-opacity duration-300 ${

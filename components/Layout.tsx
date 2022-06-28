@@ -34,11 +34,6 @@ export default function Layout(props: Props) {
     )
   }, [])
 
-  // useEffect(() => {
-  //   state.isMobileNavOpen && (document.body.style.overflow = 'hidden')
-  //   !state.isMobileNavOpen && (document.body.style.overflow = 'unset')
-  // }, [state.isMobileNavOpen])
-
   useEffect(() => {
     setState((prevState) => ({
       ...prevState,
