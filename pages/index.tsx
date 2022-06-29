@@ -4,27 +4,29 @@ import { useTheme } from 'next-themes'
 import Image from 'next/image'
 import Layout from '@/components/Layout'
 import Link from 'next/link'
+import * as Scroll from 'react-scroll'
+import Card from '@/components/Card'
 
 const links = [
   {
     title: 'About Me',
     location: 'about',
-    backgroundColor: 'bg-[#3a86ff]',
+    classes: 'bg-[#3a86ff] hover:bg-[#3a86ff]/70',
   },
   {
     title: 'Projects',
     location: 'projects',
-    backgroundColor: 'bg-[#8338ec]',
+    classes: 'bg-[#8338ec] hover:bg-[#8338ec]/70',
   },
   {
     title: 'Contact Me',
     location: 'contact',
-    backgroundColor: 'bg-[#ff006e]',
+    classes: 'bg-[#ff006e] hover:bg-[#ff006e]/70',
   },
   {
     title: "Sean's Resume",
     location: 'resume',
-    backgroundColor: 'bg-[#fb5607]',
+    classes: 'bg-[#fb5607] hover:bg-[#fb5607]/70',
   },
 ]
 
@@ -86,12 +88,9 @@ const Home = () => {
   return (
     <Layout>
       <AnimatePresence initial={false}>
-        <section className="lg:grid grid-cols-8 border-4 lg:mt-20">
-          <aside className="hidden border lg:block col-span-3 sticky top-20 self-start py-base">
-            <ul
-              className={`flex flex-col gap-4 transition-all duration-700 ease-linear items-end border-4
-            `}
-            >
+        <section className="lg:grid grid-cols-9 lg:mt-20">
+          <aside className="hidden lg:block col-span-3 sticky top-20 self-start py-base">
+            <ul className="flex flex-col gap-4 transition-all duration-700 ease-linear items-end px-10">
               {links.map((link) => (
                 <m.li
                   key={link.location}
@@ -101,15 +100,15 @@ const Home = () => {
                 >
                   <Link href={`#${link.location}`}>
                     <a
-                      className={`px-8 py-4 rounded flex
+                      className={`px-8 py-4 rounded flex dark:text-white
                   ${
                     state.location === link.location && !state.isTopOfPage
-                      ? 'bg-white dark:bg-secondary text-dark dark:text-light'
+                      ? 'bg-primary text-white dark:text-light'
                       : 'hover:bg-gray-100 dark:hover:bg-gray-900 transition-all duration-100 ease-in-out'
                   }
                   ${
                     state.isTopOfPage &&
-                    `${link.backgroundColor} text-white transition-all duration-100 ease-in-out hover:${link.backgroundColor}/40`
+                    `${link.classes} text-white transition-all duration-100 ease-in-out`
                   }
                   `}
                     >
@@ -143,12 +142,13 @@ const Home = () => {
               </li>
             </ul>
           </aside>
-          <aside className="col-span-5 border flex flex-col items-center justify-center py-base">
+          <aside className="col-span-6 flex flex-col items-center justify-center py-base">
+            {/* About Me */}
             <m.section
               onViewportEnter={() => handleEnterLocation('about')}
               viewport={{ margin: '-450px' }}
               id="about"
-              className="flex flex-col items-center justify-center border"
+              className="flex shadow-xl flex-col items-center justify-center"
             >
               <div className="relative h-64 w-64 sm:w-80 sm:h-80">
                 <Image
@@ -160,7 +160,7 @@ const Home = () => {
                   sizes="50vw"
                 />
               </div>
-              <div className="py-base text-center px-20">
+              <div className="py-base text-center lg:px-20">
                 <div className="grid gap-8">
                   <h1 className="h1 font-black">
                     Hi! 👋 I'm Sean Patrick O'Reilly
@@ -237,7 +237,7 @@ const Home = () => {
                     </a>
                   </div>
                   <h3 className="h3 font-black">
-                    Front-end Developer & Designer
+                    Front-end Developer & Builder of Websites
                   </h3>
                   <m.p
                     variants={showingVariants}
@@ -245,26 +245,34 @@ const Home = () => {
                     whileInView={
                       state.isTopOfPage ? { opacity: 0 } : { opacity: 1 }
                     }
-                    // animate={state.isTopOfPage ? 'disabled' : 'active'}
                     className="leading-[1.8] p"
                   >
-                    I am a Frontend Developer specializing in React and bringing
-                    forth beautiful UI, and I love what I do! I commonly make
-                    websites and apps with TailwindCSS / SASS, Craft CMS,
-                    NextJS, and JAMstack architecture. I am mostly experienced
-                    with JavaScript and JS frameworks, but I have also worked in
-                    Ruby on Rails. If you have any projects in mind feel free to
-                    reach out!
+                    I am a Frontend Developer based in Kansas City and
+                    specialize in bringing forth beautiful UI, and I love what I
+                    do! I commonly make websites and apps with TailwindCSS /
+                    SASS, Craft CMS, NextJS / React, TypeScript, and JAMstack
+                    architecture. I am mostly experienced with JavaScript and JS
+                    frameworks, but I have also worked in Ruby on Rails. If you
+                    have any projects in mind feel free to reach out!
                   </m.p>
                 </div>
               </div>
             </m.section>
+            {/* Projects / Portfolio */}
             <m.section
               onViewportEnter={() => handleEnterLocation('projects')}
               viewport={{ margin: '-450px' }}
               id="projects"
-              className="py-base h-[800px] w-full border-8 border-red-50"
-            ></m.section>
+              className="py-base w-full border-8 border-red-50 px-10"
+            >
+              <h2 className='h2 text-center font-black italic mb-10 drop-shadow-lg'>Projects</h2>
+              <div className="gap-10 grid xl:grid-cols-2">
+                <Card />
+                <Card />
+                <Card />
+                <Card />
+              </div>
+            </m.section>
             <m.section
               onViewportEnter={() => handleEnterLocation('contact')}
               viewport={{ margin: '-450px' }}

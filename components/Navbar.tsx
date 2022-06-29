@@ -45,7 +45,7 @@ export default function Navbar(props: Props) {
   }
 
   return (
-    <nav className="fixed border-8 h-20 z-10 bg-light/90 dark:bg-dark/90 filter backdrop-blur-sm flex justify-between items-center w-full py-4 px-base">
+    <nav className="fixed h-20 z-10 bg-light/90 dark:bg-dark/90 filter backdrop-blur-sm flex justify-between items-center w-full py-4 px-base">
       <ul>
         <li className="hidden lg:flex uppercase font-bold text-2xl hover:text-primary transition-all duration-700 ease-linear">
           <Link href="/">
