@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { EyeIcon } from '@heroicons/react/solid'
+import Link from 'next/link'
 
 export default function AltCard() {
   return (
@@ -38,25 +39,23 @@ export default function AltCard() {
           </div>
         </div>
         <div className="flex justify-between items-center">
-          <a
-            href="/"
-            className="flex justify-center gap-5 items-center bg-light p-3 text-primary font-bold text-sm"
-          >
-            <EyeIcon className="w-6" />
-            <span>Visit Site</span>
-          </a>
-          <a
-            href="/"
-            className="flex justify-center gap-5 items-center bg-light p-3 text-primary font-bold"
-          >
-            <Image
-              src="/svgs/github.svg"
-              alt="Github Icon"
-              height={20}
-              width={20}
-            />
-            <span>GitHub Repo</span>
-          </a>
+          <Link href="/">
+            <a className="flex justify-center gap-5 items-center bg-light p-3 text-primary font-bold text-sm">
+              <EyeIcon className="w-6" />
+              <span>Visit Site</span>
+            </a>
+          </Link>
+          <Link href="/">
+            <a className="flex justify-center gap-5 items-center bg-light p-3 text-primary font-bold">
+              <Image
+                src="/svgs/github.svg"
+                alt="Github Icon"
+                height={20}
+                width={20}
+              />
+              <span>GitHub Repo</span>
+            </a>
+          </Link>
         </div>
       </div>
     </div>
